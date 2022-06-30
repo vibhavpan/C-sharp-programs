@@ -1,0 +1,72 @@
+using System;
+
+
+    
+    Radio myRadio = new Radio(true, "Panasonic");
+    
+    myRadio.listenRadio();
+
+    TV myTV = new TV(false, "LG");
+    myTV.watchTV();
+
+class ElectricalDevice
+{
+    public bool isOn { get; set; }
+
+    public string Brand { get; set; }
+
+    public ElectricalDevice(bool isOn,string Brand)
+    {
+        this.isOn = isOn;
+        this.Brand = Brand;
+    }
+    public void switchOn()
+    {
+        isOn = true;
+    }
+
+    public void switchOff()
+    {
+        isOn = false;
+    }
+
+
+}
+class Radio : ElectricalDevice
+{
+    
+    public Radio(bool isOn, string name):base(isOn,name)
+    {
+        
+    }
+
+   
+    public void listenRadio()
+    {
+        if (isOn)
+            Console.WriteLine("Listening to radio");
+
+        else
+            Console.WriteLine("Please switch on the radio first");
+    }
+}
+
+class TV:ElectricalDevice
+{
+    
+    public TV(bool isOn, string name):base(isOn,name)
+    {
+        
+    }
+
+    public void watchTV()
+    {
+        if (isOn)
+            Console.WriteLine("Watching TV");
+
+        else
+            Console.WriteLine("Please switch on the TV first");
+    }
+}
+
+
